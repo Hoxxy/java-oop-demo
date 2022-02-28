@@ -33,6 +33,13 @@ public abstract class Product {
         this.discount = discount;
     }
 
+    public void applyDiscount(Double quantity, Double discountCoeff) {
+        if (discountCoeff < 1.0) {
+            this.setDiscount(quantity * this.getPrice() * discountCoeff);
+            System.out.printf("DISCOUNT %.0f%%  -$%.2f%n", discountCoeff * 100.0, this.getDiscount());
+        }
+    }
+
     public abstract void printReceiptLine(Double quantity);
     public abstract void checkForDiscount(Double totalForProduct);
 }

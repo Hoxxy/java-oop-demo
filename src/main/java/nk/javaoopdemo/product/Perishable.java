@@ -40,10 +40,7 @@ public class Perishable extends Product {
             discountCoeff = 0.7;
         }
 
-        if (discountCoeff < 1.0) {
-            this.setDiscount(quantity * this.getPrice() * discountCoeff);
 
-            System.out.printf("DISCOUNT %.0f%%  -$%.2f%n", discountCoeff*100.0, this.getDiscount());
-        }
+        this.applyDiscount(quantity, discountCoeff);
     }
 }

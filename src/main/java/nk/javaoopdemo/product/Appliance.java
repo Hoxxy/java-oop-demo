@@ -30,8 +30,17 @@ public class Appliance extends Product {
     public void printReceiptLine(Double quantity) {
         System.out.printf("%s %s %s%n", this.getName(), this.getBrand(), this.getModel());
         System.out.printf("%.0f x $%.2f = $%.2f%n", quantity, this.getPrice(), quantity*this.getPrice());
+        this.checkForDiscount(quantity);
     }
 
     @Override
-    public void checkForDiscount(Double totalForProduct) {}
+    public void checkForDiscount(Double quantity) {
+        Double discountCoeff = 1.0;
+        int day = LocalDate.now().getDayOfWeek().getValue();
+
+        if (this.getPrice() > 999.0 && (day == 6 || day == 7)) {
+            discountCoeff = 0.07;
+        }
+        this.applyDiscount(quantity, discountCoeff);
+    }
 }
