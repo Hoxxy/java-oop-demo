@@ -4,10 +4,10 @@ import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class Perishable extends Product {
+public class PerishableProduct extends Product {
     private final LocalDate expirationDate;
 
-    public Perishable(String name, String brand, Double price, LocalDate expirationDate) {
+    public PerishableProduct(String name, String brand, Double price, LocalDate expirationDate) {
         super(name, brand, price);
         this.expirationDate = expirationDate;
     }
@@ -39,7 +39,6 @@ public class Perishable extends Product {
         else if (daysDiff == 0) {
             discountCoeff = 0.7;
         }
-
 
         this.applyDiscount(quantity, discountCoeff);
     }

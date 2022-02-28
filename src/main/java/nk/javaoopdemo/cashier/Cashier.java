@@ -1,14 +1,10 @@
 package nk.javaoopdemo.cashier;
 
 import nk.javaoopdemo.cart.Cart;
-import nk.javaoopdemo.product.Perishable;
 import nk.javaoopdemo.product.Product;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import static java.time.temporal.ChronoUnit.DAYS;
 
 public class Cashier {
     private Double subtotal = 0.0;
